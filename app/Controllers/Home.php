@@ -6,6 +6,12 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		$data = [
+			"judul" => "All with Ci4",
+			"barang" => new \App\Models\BarangModel()
+		];
+
+
+		return view('home', $data);
 	}
 }

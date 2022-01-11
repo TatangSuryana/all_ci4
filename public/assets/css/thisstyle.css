@@ -1,0 +1,37 @@
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
+	color:white;
+}
+.navbar-light .navbar-nav .nav-link{
+	color:white;
+}
+.bodas{
+	color: white;
+}
+.hitam{
+	color: black;
+}
+
+.ngambangkecil{
+	top: 43%;
+	right:20%;
+	margin-right:-25%;
+	transform: translate(-25%, -25%);
+}
+.ngambangbawah{
+	right:0;
+	bottom: 0;
+}
+.ngambangkecil2{
+	top: 30%;
+	right:15%;
+	margin-right:-25%;
+	transform: translate(-25%, -25%);
+}
+
+.ngambangbesar{
+	top: 50%;
+	left:50%;
+	margin-right:-50%;
+	transform: translate(-50%, -50%);
+	font-weight: bold;
+}
