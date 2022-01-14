@@ -14,4 +14,21 @@ class Home extends BaseController
 
 		return view('home', $data);
 	}
+
+	public function edit($id = null)
+	{
+		if ($id == null) {
+
+			return redirect()->to('/');
+		}
+
+		$barang = new \App\Models\BarangModel();
+
+		$data = [
+			"judul" => "edit Barang",
+			"detail_barang" => $barang->get($id)
+		];
+
+		return view("edit", $data);
+	}
 }

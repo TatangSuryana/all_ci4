@@ -14,6 +14,11 @@ class BarangModel extends Model
 
     public function show()
     {
-        return $this->join("jenis_barang", "jenis_barang.id = daftar_barang.jenis_barang")->join("kategori_barang", "kategori_barang.id = daftar_barang.kategori_barang")->findAll();
+        return $this->join("jenis_barang", "jenis_barang.id_jenis_barang = daftar_barang.jenis_barang")->join("kategori_barang", "kategori_barang.id_kategori_barang = daftar_barang.kategori_barang")->findAll();
+    }
+
+    public function get($id)
+    {
+        return $this->join("jenis_barang", "jenis_barang.id_jenis_barang = daftar_barang.jenis_barang")->join("kategori_barang", "kategori_barang.id_kategori_barang = daftar_barang.kategori_barang")->find($id);
     }
 }

@@ -56,6 +56,10 @@
                                 </div>
                                 <p class="card-text text-primary"><?= $harga::formatDuit($b["harga_barang"]); ?></p>
                                 <p class="card-text"><?= $b["deskripsi_barang"]; ?></p>
+                                <div class="button-group">
+                                    <a href="/home/edit/<?= $b["id"]; ?>" class=" btn btn-success">Edit</a>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
