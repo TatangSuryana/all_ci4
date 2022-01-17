@@ -10,7 +10,7 @@ class BarangModel extends Model
 
     protected $table  = "daftar_barang";
 
-    protected $allowedFields = ["nama_barang", "harga_barang", "deskripsi_barang"];
+    protected $allowedFields = ["nama_barang", "jenis_barang", "kategori_barang", "harga_barang", "deskripsi_barang", "foto_barang", "status_barang"];
 
 
 
@@ -42,6 +42,25 @@ class BarangModel extends Model
             "nama_barang" => $data["nama"],
             "harga_barang" => $data["harga"],
             "deskripsi_barang" => $data["deskripsi"]
+        ])->where('id', $data["id"])->update();
+
+        echo json_encode("ok");
+        exit;
+    }
+
+    public function edit_barang_upload_id($data, $file)
+    {
+        $old = $this->find($data["id"]);
+
+        unlink('assets/gambar/' . $old["foto_barang"]);
+
+        $file->move('assets/gambar/', $file->getName());
+
+        $this->set([
+            "nama_barang" => $data["nama"],
+            "harga_barang" => $data["harga"],
+            "deskripsi_barang" => $data["deskripsi"],
+            "foto_barang" => $file->getName()
         ])->where('id', $data["id"])->update();
 
         echo json_encode("ok");

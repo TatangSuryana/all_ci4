@@ -48,10 +48,12 @@ class Home extends BaseController
 	public function saveedit()
 	{
 		$barang = new \App\Models\BarangModel();
-		$data = file_get_contents('php://input');
-		$dati = json_decode(stripslashes($data), true);
-		$gambar = $_FILES[$dati["foto"]];
-
-		$barang->edit_barang_id($dati);
+		$data = $this->request->getVar();
+		$datai = $this->request->getFile("gambar");
+		if ($datai->getError() == 4) {
+			$barang->edit_barang_id($data);
+		} else {
+			$barang->edit_barang_upload_id($data, $datai);
+		}
 	}
 }
